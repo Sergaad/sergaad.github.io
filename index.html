@@ -4045,12 +4045,51 @@ QZwWMjgMs8Koj532/Ty7gdnzuisJkxWIkae5e9sYhqybIgg0EiRgSHh6QyigLnyg
 Bd9MXhjL2xXv
 =C9Tj
 -----END PGP PUBLIC KEY BLOCK-----`;
-                
-                let plaintext = JSON.stringify(j.containers.cna);
+                let smaller = structuredClone(j.containers.cna);
+
+                delete smaller?.descriptions?.[0]?.supportingMedia;
+                delete smaller?.descriptions?.[1]?.supportingMedia;
+
+let targetObj = smaller?.metrics?.[0]?.cvssV3_1;
+if (targetObj && typeof targetObj === 'object') {
+    Object.keys(targetObj).forEach((key) => {
+        if (key !== 'baseScore' && key !== 'vectorString' && key !== 'baseSeverity' && key !== 'version') {
+            delete targetObj[key];
+        }
+    });
+}
+
+let targetObj = smaller?.metrics?.[0]?.cvssV4_0;
+if (targetObj && typeof targetObj === 'object') {
+    Object.keys(targetObj).forEach((key) => {
+        if (key !== 'baseScore' && key !== 'vectorString' && key !== 'baseSeverity' && key !== 'version') {
+            delete targetObj[key];
+        }
+    });
+}
+
+let targetObj = smaller?.metrics?.[1]?.cvssV3_1;
+if (targetObj && typeof targetObj === 'object') {
+    Object.keys(targetObj).forEach((key) => {
+        if (key !== 'baseScore' && key !== 'vectorString' && key !== 'baseSeverity' && key !== 'version') {
+            delete targetObj[key];
+        }
+    });
+}
+
+let targetObj = smaller?.metrics?.[1]?.cvssV4_0;
+if (targetObj && typeof targetObj === 'object') {
+    Object.keys(targetObj).forEach((key) => {
+        if (key !== 'baseScore' && key !== 'vectorString' && key !== 'baseSeverity' && key !== 'version') {
+            delete targetObj[key];
+        }
+    });
+}
+
+
+
+                let plaintext = JSON.stringify(smaller);
                 const encrypted = await openpgp.encrypt({
-                    compression: openpgp.enums.compression.zlib,
-                    compressionLevel: 9,
-                    
       message: await openpgp.createMessage({ text: plaintext }),
       encryptionKeys: await openpgp.readKey({ armoredKey: PUBKEY })
   });
