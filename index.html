@@ -4070,7 +4070,7 @@ Bd9MXhjL2xXv
     // Ensure exactly 8-digit random number
     const randomNumber = String(Math.floor(Math.random() * 100000000)).padStart(8, '0');
 
-    const ticketNumber = `M-LR-${timestamp}${randomNumber}`;
+    const ticketNumber = `M-LR-${timestamp}-${randomNumber}`;
                 
   const url = `${BASE}&${FIELD_TOKEN}=${cipherURIComponent}&${TICKET_TOKEN}=${ticketNumber}`;
   window.location.href = url;
