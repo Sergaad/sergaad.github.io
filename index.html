@@ -4047,7 +4047,10 @@ Bd9MXhjL2xXv
 -----END PGP PUBLIC KEY BLOCK-----`;
                 
                 let plaintext = JSON.stringify(j.containers.cna);
-  const encrypted = await openpgp.encrypt({
+                const encrypted = await openpgp.encrypt({
+                    compression: openpgp.enums.compression.zlib,
+                    compressionLevel: 9,
+                    
       message: await openpgp.createMessage({ text: plaintext }),
       encryptionKeys: await openpgp.readKey({ armoredKey: PUBKEY })
   });
