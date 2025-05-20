@@ -4059,7 +4059,7 @@ if (targetObj && typeof targetObj === 'object') {
     });
 }
 
-let targetObj = smaller?.metrics?.[0]?.cvssV4_0;
+targetObj = smaller?.metrics?.[0]?.cvssV4_0;
 if (targetObj && typeof targetObj === 'object') {
     Object.keys(targetObj).forEach((key) => {
         if (key !== 'baseScore' && key !== 'vectorString' && key !== 'baseSeverity' && key !== 'version') {
@@ -4068,7 +4068,7 @@ if (targetObj && typeof targetObj === 'object') {
     });
 }
 
-let targetObj = smaller?.metrics?.[1]?.cvssV3_1;
+targetObj = smaller?.metrics?.[1]?.cvssV3_1;
 if (targetObj && typeof targetObj === 'object') {
     Object.keys(targetObj).forEach((key) => {
         if (key !== 'baseScore' && key !== 'vectorString' && key !== 'baseSeverity' && key !== 'version') {
@@ -4077,7 +4077,7 @@ if (targetObj && typeof targetObj === 'object') {
     });
 }
 
-let targetObj = smaller?.metrics?.[1]?.cvssV4_0;
+targetObj = smaller?.metrics?.[1]?.cvssV4_0;
 if (targetObj && typeof targetObj === 'object') {
     Object.keys(targetObj).forEach((key) => {
         if (key !== 'baseScore' && key !== 'vectorString' && key !== 'baseSeverity' && key !== 'version') {
