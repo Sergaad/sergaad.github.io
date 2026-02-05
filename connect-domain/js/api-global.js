@@ -1,0 +1,1 @@
+window.__API_UUID__=null,window.__API_URLSTART__=null,window.setApiUuid=function(u){if("string"!=typeof u||u.length<8)throw new Error("too few characters for the API UUID");window.__API_UUID__=u.trim()},window.setApiUrlStart=function(u){if("string"!=typeof u||u.length<8)throw new Error("too few characters for the API URLSTART");window.__API_URLSTART__=u.trim()};
