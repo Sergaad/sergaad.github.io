@@ -1,0 +1,15 @@
+{
+  "name": "purl_wasm",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "purl_wasm_bg.wasm",
+    "purl_wasm.js",
+    "purl_wasm.d.ts"
+  ],
+  "main": "purl_wasm.js",
+  "types": "purl_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
